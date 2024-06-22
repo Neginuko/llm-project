@@ -3,7 +3,14 @@ name = "llm-project"
 version = "0.1.0"
 description = "Add your description here"
 authors = [{ name = "Neginuko", email = "hirahaya0117@gmail.com" }]
-dependencies = []
+dependencies = [
+    "flax>=0.8.4",
+    "jax>=0.4.30",
+    "sentencepiece>=0.2.0",
+    "absl-py>=2.1.0",
+    "tensorflow-datasets>=4.9.6",
+    "tensorflow>=2.16.1",
+]
 readme = "README.md"
 requires-python = ">= 3.8"
 
@@ -13,17 +20,21 @@ build-backend = "hatchling.build"
 
 [tool.rye]
 managed = true
-dev-dependencies = ["mypy>=1.10.0", "ruff>=0.4.10"]
+dev-dependencies = ["mypy>=1.10.0", "ruff>=0.4.10", "black>=24.4.2"]
 
 [tool.mypy]
 ignore_missing_imports = true
 
 [tool.ruff]
-line-length = 120
+line-length = 88
 target-version = "py311"
 select = ["E", "F", "W", "I", "B"]
 fixable = ["ALL"]
 ignore = []
+
+[tool.ruff.format]
+quote-style = "single"
+
 
 [tool.hatch.metadata]
 allow-direct-references = true
