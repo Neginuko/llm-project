@@ -10,6 +10,8 @@ dependencies = [
     "absl-py>=2.1.0",
     "tensorflow-datasets>=4.9.6",
     "tensorflow>=2.16.1",
+    "ml-collections>=0.1.1",
+    "clu>=0.0.12",
 ]
 readme = "README.md"
 requires-python = ">= 3.8"

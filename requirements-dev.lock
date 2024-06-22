@@ -11,9 +11,11 @@
 -e file:.
 absl-py==2.1.0
     # via chex
+    # via clu
     # via etils
     # via keras
     # via llm-project
+    # via ml-collections
     # via optax
     # via orbax-checkpoint
     # via tensorboard
@@ -32,16 +34,22 @@ chex==0.1.86
 click==8.1.7
     # via black
     # via tensorflow-datasets
+clu==0.0.12
+    # via llm-project
+contextlib2==21.6.0
+    # via ml-collections
 dm-tree==0.1.8
     # via tensorflow-datasets
 docstring-parser==0.16
     # via simple-parsing
 etils==1.9.2
+    # via clu
     # via orbax-checkpoint
     # via tensorflow-datasets
 flatbuffers==24.3.25
     # via tensorflow
 flax==0.8.4
+    # via clu
     # via llm-project
 fsspec==2024.5.0
     # via etils
@@ -65,12 +73,14 @@ importlib-resources==6.4.0
     # via etils
 jax==0.4.30
     # via chex
+    # via clu
     # via flax
     # via llm-project
     # via optax
     # via orbax-checkpoint
 jaxlib==0.4.30
     # via chex
+    # via clu
     # via jax
     # via optax
     # via orbax-checkpoint
@@ -86,6 +96,9 @@ markupsafe==2.1.5
     # via werkzeug
 mdurl==0.1.2
     # via markdown-it-py
+ml-collections==0.1.1
+    # via clu
+    # via llm-project
 ml-dtypes==0.3.2
     # via jax
     # via jaxlib
@@ -105,6 +118,7 @@ nest-asyncio==1.6.0
     # via orbax-checkpoint
 numpy==1.26.4
     # via chex
+    # via clu
     # via etils
     # via flax
     # via h5py
@@ -132,6 +146,7 @@ orbax-checkpoint==0.5.20
     # via flax
 packaging==24.1
     # via black
+    # via clu
     # via tensorflow
 pathspec==0.12.1
     # via black
@@ -154,6 +169,7 @@ pygments==2.18.0
     # via rich
 pyyaml==6.0.1
     # via flax
+    # via ml-collections
     # via orbax-checkpoint
 requests==2.32.3
     # via tensorflow
@@ -175,6 +191,7 @@ simple-parsing==0.1.5
 six==1.16.0
     # via astunparse
     # via google-pasta
+    # via ml-collections
     # via promise
     # via tensorboard
     # via tensorflow
@@ -205,6 +222,7 @@ tqdm==4.66.4
     # via tensorflow-datasets
 typing-extensions==4.12.2
     # via chex
+    # via clu
     # via etils
     # via flax
     # via mypy
@@ -219,6 +237,7 @@ werkzeug==3.0.3
 wheel==0.43.0
     # via astunparse
 wrapt==1.16.0
+    # via clu
     # via tensorflow
     # via tensorflow-datasets
 zipp==3.19.2

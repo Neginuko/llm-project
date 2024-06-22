@@ -1,10 +1,10 @@
-"""Tokenizer for data preprocessing."""
+"""Tokenizer for datasets encoding."""
 
 import dataclasses
 import os
 import tempfile
 import time
-from typing import Any, Dict, Iterable
+from typing import Any, Dict, Iterable, Optional
 
 import jax
 import sentencepiece as spm
@@ -39,8 +39,8 @@ def _train_sentencepiece(
     max_chars: int = int(1e7),
     model_path: str,
     model_type: str = 'unigram',
+    spm_train_options: Optional[Dict[str, Any]] = None,
     data_keys=('inputs', 'targets'),
-    **kwargs,
 ):
     """Train SentencePiece tokenizer from given dataset."""
     abs_model_path = os.path.abspath(model_path)
@@ -54,7 +54,7 @@ def _train_sentencepiece(
         model_prefix=model_fp.name,
         vocab_size=vocab_size,
         model_type=model_type,
-        **kwargs,
+        **spm_train_options,
     )
     if jax.process_index() == 0:
         copy_rename_path = abs_model_path + '.rntmp'
@@ -83,6 +83,7 @@ def load_or_train_tokenizer(
     vocab_path: str,
     vocab_size: int,
     max_corpus_chars: int = int(1e7),
+    spm_train_options: Optional[Dict[str, Any]] = None,
     data_keys=('inputs', 'targets'),
 ):
     """Load the tokenizer at `vocab_path` or trains a one from `dataset`."""
@@ -97,6 +98,7 @@ def load_or_train_tokenizer(
             vocab_size=vocab_size,
             max_chars=max_corpus_chars,
             model_path=vocab_path,
+            spm_train_options=spm_train_options,
             data_keys=data_keys,
         )
         return _load_sentencepiece_tokenizer(vocab_path)
