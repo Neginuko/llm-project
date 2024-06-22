@@ -1,0 +1,32 @@
+[project]
+name = "llm-project"
+version = "0.1.0"
+description = "Add your description here"
+authors = [{ name = "Neginuko", email = "hirahaya0117@gmail.com" }]
+dependencies = []
+readme = "README.md"
+requires-python = ">= 3.8"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.rye]
+managed = true
+dev-dependencies = ["mypy>=1.10.0", "ruff>=0.4.10"]
+
+[tool.mypy]
+ignore_missing_imports = true
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+select = ["E", "F", "W", "I", "B"]
+fixable = ["ALL"]
+ignore = []
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src"]
